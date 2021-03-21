@@ -1,15 +1,21 @@
+import {Route, Switch} from 'react-router-dom';
+
 import './App.css';
-import Header from './components/Header';
+import Header from './components/Header/Header';
 import Footer from './components/Footer';
+import Main from './components/Main';
+import Dashboard from './components/Dashboard';
 
 function App() {
   return (
     <div id="container">
       <Header/>
       <main id="site-content">
-      <section class="basic">
-                <h1> Welcome to pet my pet!</h1>                
-            </section>
+        <Switch>
+            <Route path="/" exact component={Main}/>
+            <Route path="/home" component={Main}/>
+            <Route path="/pets/:category" component={Dashboard}/>
+        </Switch>
       </main>
       <Footer/>
     </div>
